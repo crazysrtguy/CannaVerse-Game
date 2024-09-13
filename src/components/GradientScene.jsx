@@ -54,7 +54,7 @@ export default function GradientScene(props) {
     );
 
     // Load videos for cubes
-    const videoFiles = ["/videos/CannaVerse.mp4", "/videos/game2.mp4","/videos/space.mp4"];
+    const videoFiles = ["/videos/CannaVerse.mp4", "/videos/game.mp4","/videos/space.mp4"];
     videoFiles.forEach((file, index) => {
       const video = document.createElement("video");
       video.src = file;
