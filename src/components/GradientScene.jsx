@@ -44,15 +44,15 @@ export default function GradientScene(props) {
       material.side = DoubleSide;
     });
 
-    textureLoader.load(
-      "/textures/space.jpg",
-      (texture) => {
-        scene.background = texture;
-        console.log("Space background texture loaded");
-      },
-      undefined,
-      (err) => console.error("Error loading space background texture: ", err)
-    );
+    const video = document.createElement("video");
+    video.src = "/videos/space.mp4";
+    video.crossOrigin = "Anonymous";
+    video.loop = true;
+    video.muted = true;
+    video.play();
+
+    const videoTexture = new VideoTexture(video);
+    scene.background = videoTexture;
 
     // Load videos for cubes
     const videoFiles = ["/videos/CannaVerse.mp4", "/videos/game.mp4","/videos/space.mp4"];
@@ -114,7 +114,7 @@ export default function GradientScene(props) {
 
   // Explode cube function
   const explodeCube = (cubeRef) => {
-    const explodeSpeed = 0.1;
+    const explodeSpeed = 0.05;
     if (cubeRef.current) {
       cubeRef.current.scale.x += explodeSpeed;
       cubeRef.current.scale.y += explodeSpeed;
@@ -176,7 +176,7 @@ export default function GradientScene(props) {
             <group
               name="CharacterArmature"
               rotation={[-Math.PI / 2, 0, 0]}
-              scale={100}
+              scale={200}
             >
               <primitive object={nodes.Root} />
               <skinnedMesh
@@ -269,11 +269,11 @@ export default function GradientScene(props) {
         <boxGeometry args={[30, 20, 30]} />
         <meshStandardMaterial />
       </mesh>
-      <mesh ref={cubeRefs[1]} position={[-90, 75, -70]}>
+      <mesh ref={cubeRefs[1]} position={[-90, 75, -120]}>
         <boxGeometry args={[40, 40, 40]} />
         <meshStandardMaterial />
       </mesh>
-      <mesh ref={cubeRefs[2]} position={[50, 120, -90]}>
+      <mesh ref={cubeRefs[2]} position={[50, 120, -120]}>
         <boxGeometry args={[40, 40, 40]} />
         <meshStandardMaterial />
       </mesh>
@@ -284,7 +284,7 @@ export default function GradientScene(props) {
         position={[0, 100, -500]}
         fontSize={40}
         color="#1ee317"
-        outlineWidth={0.7}
+        outlineWidth={1.7}
         outlineColor="#ff8d00"
       >
         CANNAVERSE will NEVER STOP!!
@@ -294,10 +294,10 @@ export default function GradientScene(props) {
       <Text
         ref={(el) => (textRefs.current[1] = el)}
         position={[0, 60, -500]}
-        fontSize={30}
-        color="#ff8d00"
-        outlineWidth={0.5}
-        outlineColor="#1ee317"
+        fontSize={40}
+        color="#1ee317"
+        outlineWidth={1.7}
+        outlineColor="#ff8d00"
       >
         WE are going to the moon!!
       </Text>
@@ -306,10 +306,10 @@ export default function GradientScene(props) {
       <Text
         ref={(el) => (textRefs.current[2] = el)}
         position={[0, 20, -500]}
-        fontSize={25}
-        color="#ff0000"
-        outlineWidth={0.3}
-        outlineColor="#ffffff"
+        fontSize={40}
+        color="#1ee317"
+        outlineWidth={1.7}
+        outlineColor="#ff8d00"
       >
         Its all about community to send a coin and thats what we do!!!
       </Text>
