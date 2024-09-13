@@ -13,6 +13,7 @@ export default function GradientScene(props) {
   const { scene } = useThree();
   const { nodes, materials, animations } = useGLTF("/models/GradientScene.glb");
   const { actions } = useAnimations(animations, group);
+  const textRefs = useRef([]);
 
   const { scene: rocketScene } = useGLTF("/models/rocket.glb");
   const rocketRef = useRef();
@@ -279,6 +280,7 @@ export default function GradientScene(props) {
 
       {/* Glowing text */}
       <Text
+        ref={(el) => (textRefs.current[0] = el)}
         position={[0, 100, -500]}
         fontSize={40}
         color="#1ee317"
@@ -286,9 +288,29 @@ export default function GradientScene(props) {
         outlineColor="#ff8d00"
       >
         CANNAVERSE will NEVER STOP!!
-        
-        WE are going to the moon!!
+      </Text>
 
+      {/* Second text */}
+      <Text
+        ref={(el) => (textRefs.current[1] = el)}
+        position={[0, 60, -500]}
+        fontSize={30}
+        color="#ff8d00"
+        outlineWidth={0.5}
+        outlineColor="#1ee317"
+      >
+        WE are going to the moon!!
+      </Text>
+
+      {/* Third text */}
+      <Text
+        ref={(el) => (textRefs.current[2] = el)}
+        position={[0, 20, -500]}
+        fontSize={25}
+        color="#ff0000"
+        outlineWidth={0.3}
+        outlineColor="#ffffff"
+      >
         Its all about community to send a coin and thats what we do!!!
       </Text>
     </>
