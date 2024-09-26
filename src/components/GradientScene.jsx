@@ -287,7 +287,7 @@ export default function GradientScene(props) {
         outlineWidth={1.7}
         outlineColor="#ff8d00"
       >
-        CANNAVERSE will NEVER STOP!!
+        GRUNT will NEVER STOP!!
       </Text>
 
       {/* Second text */}
