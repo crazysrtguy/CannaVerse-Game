@@ -287,7 +287,7 @@ export default function GradientScene(props) {
         outlineWidth={1.7}
         outlineColor="#ff8d00"
       >
-        GRUNT will NEVER STOP!!
+        Welcome to Financial Freedom!!
       </Text>
 
       {/* Second text */}
@@ -299,7 +299,7 @@ export default function GradientScene(props) {
         outlineWidth={1.7}
         outlineColor="#ff8d00"
       >
-        WE are going to the moon!!
+        NEXT STOP IS MOON!!
       </Text>
 
       {/* Third text */}
